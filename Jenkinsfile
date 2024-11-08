@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "adhibanganesh/docker-ci-cd"
-        REGISTRY_CREDENTIALS = "dockerhub-creds"
+        REGISTRY_CREDENTIALS = "a97a61d3-83fa-4442-858b-8012fd0c0583"
         DOCKER_USERNAME = "adhibanganesh"
         DOCKER_PASSWORD = "AGmadurai@2004"
     }
