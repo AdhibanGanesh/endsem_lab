@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/AdhibanGanesh/end_lab.git'
+                git branch: 'master', url: 'https://github.com/AdhibanGanesh/endsem_lab.git'
             }
         }
         
