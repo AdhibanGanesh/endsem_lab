@@ -16,16 +16,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Set the environment based on the Git branch
-                    def profile = ''
-                    if (env.BRANCH_NAME == 'staging') {
-                        profile = 'staging'
-                    } else if (env.BRANCH_NAME == 'master') {
-                        profile = 'production'
-                    }
-
-                    // Build with Maven using the environment profile
-                    sh "mvn clean package -P${profile}"
+                    // Build with specific profile (staging or production)
+                    sh "mvn clean package -P${env.BRANCH_NAME}"
                 }
             }
         }
