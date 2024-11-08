@@ -4,6 +4,8 @@ pipeline {
     environment {
         DOCKER_IMAGE = "adhibanganesh/docker-ci-cd"
         REGISTRY_CREDENTIALS = "dockerhub-creds"
+        DOCKER_USERNAME = "adhibanganesh"
+        DOCKER_PASSWORD = "AGmadurai@2004"
     }
 
     stages {
@@ -18,6 +20,14 @@ pipeline {
                 script {
                     // Build with specific profile (staging or production)
                     sh "mvn clean package -P${env.BRANCH_NAME}"
+                }
+            }
+        }
+
+        stage('Login to Docker Hub') {
+            steps {
+                script {
+                    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                 }
             }
         }
